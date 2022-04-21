@@ -34,7 +34,7 @@ public class MyLogger {
                 currentClass,
                 message
         );
-        if (level == LogLevel.INFO) {
+        if (level == LogLevel.INFO || level == LogLevel.DEBUG) {
             System.out.println(msg);
         } else {
             System.err.println(msg);
