@@ -1,22 +1,13 @@
 package project.my_f_sal;
 
-import org.junit.Test;
-import project.SeleniumTest;
+public class SignUpTest extends SignUpPage {
 
-public class SignUpTest extends SeleniumTest {
-
-
-    @Test
-    public void validSignUp() {
-
-
+    public void validSignUpTest() {
+        validSignUpPage();
     }
 
-
-    @Test
-    public void invalidSignUp() {
-
-
+    public void invalidSignUpTest() {
+        invalidSignUpPage();
     }
-    
+
 }

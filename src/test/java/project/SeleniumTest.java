@@ -70,7 +70,7 @@ public abstract class SeleniumTest {
 
     @After
     public void tearDown() {
-//        sleep(5000);
+        sleep(1000);
         driver.quit();
     }
 

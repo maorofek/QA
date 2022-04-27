@@ -17,7 +17,6 @@ public class MyLogger {
     public File logfile;
     public String currentClass;
     public boolean append = true;
-
     public static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS", Locale.ENGLISH);
     public static final String LOG_MESSAGE_FORMAT = "[%-5s] %s [%s] %s";
 
