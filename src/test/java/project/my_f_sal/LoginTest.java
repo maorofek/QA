@@ -4,7 +4,6 @@ import org.junit.Test;
 
 public class LoginTest extends LoginPage {
 
-
     @Test
     public void validLoginTest() {
         validLogin();
@@ -14,5 +13,4 @@ public class LoginTest extends LoginPage {
     public void invalidLoginTest() {
         invalidLogin();
     }
-
 }

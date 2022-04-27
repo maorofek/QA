@@ -15,7 +15,7 @@ public class LoginPage extends SeleniumTest {
         initDefaults();
         driver.findElement(By.id("login")).sendKeys(Keys.ENTER);
         driver.findElement(By.id("userName")).sendKeys("mao"); // user: mao
-        driver.findElement(By.id("password")).sendKeys("Maor12354!"); // pass: Ntur123123!
+        driver.findElement(By.id("password")).sendKeys("Ntur123123!"); // pass: Ntur123123!
         driver.findElement(By.id("login")).sendKeys(Keys.ENTER);
         sleep(2000);
         try {

@@ -29,7 +29,6 @@ public abstract class SeleniumTest {
 
     @Rule(order = Integer.MIN_VALUE)
     public TestWatcher watcher = new TestWatcher() {
-
         @Override
         protected void failed(Throwable e, Description description) {
             logger.log(DEBUG, "FAILED - " + description.getMethodName() + " | Reason: " + e.getMessage());
@@ -46,7 +45,7 @@ public abstract class SeleniumTest {
     }
 
     protected void setDefaultSize() {
-        driver.manage().window().setSize(new Dimension(1280, 720));
+        driver.manage().window().setSize(new Dimension(1280, 960));
     }
 
     protected void initDefaults() {
@@ -87,5 +86,15 @@ public abstract class SeleniumTest {
     protected void waitForElement(By locator) {
         sleep(IMPLICIT_WAIT_TIME_MS); // just to be sure
         driverWait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    protected boolean isAlertPresent() {
+        try {
+            sleep(IMPLICIT_WAIT_TIME_MS); // give time for alert to pop
+            driver.switchTo().alert();
+            return true;
+        } catch (NoAlertPresentException Ex) {
+            return false;
+        }
     }
 }
