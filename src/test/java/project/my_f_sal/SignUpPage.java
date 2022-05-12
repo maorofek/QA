@@ -15,13 +15,13 @@ import static org.junit.Assert.assertTrue;
 import static project.MyLogger.LogLevel.INFO;
 
 public class SignUpPage extends SeleniumTest {
-
+//
 //    @Test
 //    public void validSignUpPage() {
 //        initDefaults();
 //        driver.findElement(By.id("login")).sendKeys(Keys.ENTER);
 //        driver.findElement(By.id("newUser")).sendKeys(Keys.ENTER);
-//        driver.findElement(By.id("firstname")).sendKeys("Gandalf12s123123asd");
+//        driver.findElement(By.id("firstname")).sendKeys("Gandalf12s123123asasd");
 //        driver.findElement(By.id("lastname")).sendKeys("The King");
 //        driver.findElement(By.id("userName")).sendKeys("Gandalf2K1231");
 //        driver.findElement(By.id("password")).sendKeys("Maor12354!");
@@ -36,7 +36,7 @@ public class SignUpPage extends SeleniumTest {
 //
 //        assertTrue("didnt get the next page", isAlertPresent());
 //        driver.switchTo().alert().accept();
-//
+//        driver.findElement(By.xpath("//*[@id=\"woocommerce_price_filter-2\"]/form/div/div[1]/span[1]")).click();
 //    }
 //
 //    public void invalidSignUpPage() {

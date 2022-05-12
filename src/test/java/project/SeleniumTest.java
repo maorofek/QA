@@ -14,6 +14,7 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.junit.Assert.assertFalse;
 import static project.MyLogger.LogLevel.*;
 
 public abstract class SeleniumTest {
@@ -45,7 +46,7 @@ public abstract class SeleniumTest {
     }
 
     protected void setDefaultSize() {
-        driver.manage().window().setSize(new Dimension(1280, 960));
+        driver.manage().window().setSize(new Dimension(1920, 1080));
     }
 
     protected void initDefaults() {
@@ -60,7 +61,6 @@ public abstract class SeleniumTest {
         js = (JavascriptExecutor) driver;
         vars = new HashMap<>();
         driverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
-
         logger = new MyLogger(
                 "logs/" + this.getClass().getPackage().getName() + ".log",
                 this.getClass().getSimpleName()
@@ -96,5 +96,24 @@ public abstract class SeleniumTest {
         } catch (NoAlertPresentException Ex) {
             return false;
         }
+    }
+
+    public void login() {
+        driver.findElement(By.id("login")).sendKeys(Keys.ENTER);
+        driver.findElement(By.id("userName")).sendKeys("mao"); // user: mao
+        driver.findElement(By.id("password")).sendKeys("Ntur123123!"); // pass: Ntur123123!
+        driver.findElement(By.id("login")).sendKeys(Keys.ENTER);
+        sleep(2000);
+        try {
+            assertFalse("didnt get the next page", driver.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div[2]/div[2]/form/div[4]/div[1]/button")).isDisplayed());
+        } catch (NoSuchElementException e) {
+            logger.log(INFO, "the next page uploaded");
+        }
+    }
+
+    protected void clickElementSafely(By locator) {
+        waitForElement(locator); // just to be sure
+        driverWait.until(ExpectedConditions.elementToBeClickable(locator));
+        driver.findElement(locator).click();
     }
 }
